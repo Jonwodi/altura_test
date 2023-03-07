@@ -1,0 +1,70 @@
+// CSS for SearchBar component
+
+.searchbar {
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: #fffefd;
+    max-width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #e363dc;
+  }
+
+  &__search {
+    display: flex;
+    flex-wrap: row wrap;
+    column-gap: 10px;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    color: #0b0a13;
+    padding-right: 5px;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    color: #0b0a13;
+  }
+
+  &__button {
+    background-color: #e363dc;
+    color: #fffefd;
+    padding: 5px 10px;
+    border: #e363dc;
+    border-radius: 5px;
+  }
+
+  &__button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .searchbar {
+    &__container {
+      padding: 15px;
+    }
+
+    &__input {
+      min-width: 390px;
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .searchbar {
+    &__input {
+      min-width: 570px;
+    }
+  }
+}
