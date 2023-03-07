@@ -1,0 +1,18 @@
+.pagetitle {
+  color: #e363dc;
+  font-size: 16px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .pagetitle {
+    font-size: 30px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .pagetitle {
+    font-size: 40px;
+  }
+}
