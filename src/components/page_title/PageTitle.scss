@@ -1,5 +1,5 @@
 // CSS for PageTitle component
-.pagetitle {
+.pageTitle {
   color: #e363dc;
   font-size: 16px;
   text-align: center;
@@ -7,7 +7,7 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .pagetitle {
+  .pageTitle {
     font-size: 30px;
   }
 }

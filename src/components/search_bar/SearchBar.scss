@@ -1,6 +1,6 @@
 // CSS for SearchBar component
 
-.searchbar {
+.searchBar {
   &__container {
     display: flex;
     flex-flow: row wrap;
@@ -49,7 +49,7 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .searchbar {
+  .searchBar {
     &__container {
       padding: 15px;
     }
@@ -62,7 +62,7 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .searchbar {
+  .searchBar {
     &__input {
       min-width: 570px;
     }
