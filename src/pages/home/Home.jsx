@@ -56,6 +56,7 @@ export default function Home() {
             title={more.name}
             description={more.description}
             url={more.url}
+            img={more.image}
           />
         </NFTModal>
       )}

@@ -1,3 +1,15 @@
 .nft_details {
   text-align: left;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  img {
+    height: 300px;
+    margin-bottom: 100px;
+    margin: 0 auto;
+  }
+
+  &__purchase_link {
+    margin-top: 50px;
+  }
 }
