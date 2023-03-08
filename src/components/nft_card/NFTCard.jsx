@@ -2,11 +2,11 @@ import React from "react";
 import "./NFTCard.scss";
 
 export default function NFTCard(props) {
-  const { img, title } = props;
+  const { img, name, ...others } = props;
   return (
-    <div className="nft_card">
-      <img src={img} className="nft_card__img" />
-      <p>Title: {title}</p>
-    </div>
+    <button className="nft_card" {...others}>
+      <img src={img} className="nft_card__img" alt="" />
+      <p>{name}</p>
+    </button>
   );
 }
