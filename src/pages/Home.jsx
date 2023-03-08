@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import PageTitle from "../components/page_title/PageTitle";
 import SearchBar from "../components/search_bar/SearchBar";
 import axios from "axios";
+import CardsContainer from "../components/cards_container/CardsContainer";
 
 export default function Home() {
   const [address, setAddress] = useState("elanhalpern.eth"); // wallet address
+  const [data, setData] = useState([]);
 
   // function to update wallet address
   const handleAddressChange = (value) => {
@@ -21,11 +23,17 @@ export default function Home() {
       const response = await axios.get(`${url}`, {
         withCredentials: false,
       });
-      console.log(response.data);
+      // console.log(response.data.ownedNfts);
+      setData(response.data.ownedNfts);
+      // console.log("This is data", data);
     } catch (err) {
       console.log(err);
     }
   }
+
+  data.forEach((d) => {
+    console.log(d.description);
+  });
 
   return (
     <div>
@@ -38,6 +46,12 @@ export default function Home() {
         onAddressChange={handleAddressChange}
         getData={getNFTs}
       />
+      {/* <ul style={{ backgroundColor: "red" }}>
+        {data.map((d) => {
+          return <li>{d.description}</li>;
+        })}
+      </ul> */}
+      <CardsContainer></CardsContainer>
     </div>
   );
 }
