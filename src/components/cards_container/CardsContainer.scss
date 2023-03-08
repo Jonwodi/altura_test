@@ -1,7 +1,12 @@
 // CSS for cards container
 .cards_container {
-  background-color: aqua;
-  height: 500px;
+  height: auto;
   width: 100%;
   margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 15px;
+  row-gap: 15px;
+  padding-bottom: 100px;
 }

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import PageTitle from "../components/page_title/PageTitle";
-import SearchBar from "../components/search_bar/SearchBar";
+import PageTitle from "../../components/page_title/PageTitle";
+import SearchBar from "../../components/search_bar/SearchBar";
 import axios from "axios";
-import CardsContainer from "../components/cards_container/CardsContainer";
+import CardsContainer from "../../components/cards_container/CardsContainer";
+import NFTCard from "../../components/nft_card/NFTCard";
+import "./Home.scss";
 
 export default function Home() {
   const [address, setAddress] = useState("elanhalpern.eth"); // wallet address
@@ -25,18 +27,18 @@ export default function Home() {
       });
       // console.log(response.data.ownedNfts);
       setData(response.data.ownedNfts);
-      // console.log("This is data", data);
+      console.log("This is data", data);
     } catch (err) {
       console.log(err);
     }
   }
 
-  data.forEach((d) => {
-    console.log(d.description);
-  });
+  // data.forEach((d) => {
+  //   console.log(d.description);
+  // });
 
   return (
-    <div>
+    <div className="home">
       <PageTitle
         text="Altura Frontend Engineer Technical Test"
         className="pageTitle"
@@ -51,7 +53,17 @@ export default function Home() {
           return <li>{d.description}</li>;
         })}
       </ul> */}
-      <CardsContainer></CardsContainer>
+      <CardsContainer>
+        {data.map((d, index) => {
+          return (
+            <NFTCard
+              img={d.contractMetadata.openSea.imageUrl}
+              title={d.title}
+              key={index}
+            />
+          );
+        })}
+      </CardsContainer>
     </div>
   );
 }
