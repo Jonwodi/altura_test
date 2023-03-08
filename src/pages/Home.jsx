@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageTitle from "../components/page_title/PageTitle";
 import SearchBar from "../components/search_bar/SearchBar";
 import axios from "axios";
-import { useState } from "react";
 
 export default function Home() {
   const [address, setAddress] = useState("elanhalpern.eth"); // wallet address
@@ -12,19 +11,21 @@ export default function Home() {
     setAddress(value);
   };
 
-  // Alchemy URL
+  // Alchemy URL NFTs API endpoint
   const baseURL = `${import.meta.env.VITE_API_URL}`;
   const url = `${baseURL}/getNFTs/?owner=${address}`;
 
-  const displayNfts = axios.get(`${url}`, {
-    withCredentials: false,
-  });
-
-  // Make the request and print the formatted response:
-  async function fetchNfts() {
-    console.log((await displayNfts).data);
+  // Retrieve NFTs data from Alchemy URL NFTs API endpoint
+  async function getNFTs() {
+    try {
+      const response = await axios.get(`${url}`, {
+        withCredentials: false,
+      });
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
-  fetchNfts();
 
   return (
     <div>
@@ -32,7 +33,11 @@ export default function Home() {
         text="Altura Frontend Engineer Technical Test"
         className="pageTitle"
       />
-      <SearchBar address={address} onAddressChange={handleAddressChange} />
+      <SearchBar
+        address={address}
+        onAddressChange={handleAddressChange}
+        getData={getNFTs}
+      />
     </div>
   );
 }
