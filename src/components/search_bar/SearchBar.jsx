@@ -1,10 +1,13 @@
 import React from "react";
 import "./SearchBar.scss";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
 
-export default function SearchBar() {
-  const [address, setAddress] = useState("");
+export default function SearchBar(props) {
+  const { address } = props;
+
+  const handleAddressChange = (e) => {
+    props.onAddressChange(e.target.value);
+  };
 
   return (
     <form className="searchBar">
@@ -13,12 +16,10 @@ export default function SearchBar() {
           <MagnifyingGlassIcon className="searchBar__icon" />
           <input
             type="search"
-            placeholder="Enter address"
+            placeholder="Enter wallet address"
             className="searchBar__input"
             value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
+            onChange={handleAddressChange}
           />
         </div>
         <button
