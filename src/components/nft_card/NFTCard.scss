@@ -4,18 +4,18 @@
   border-radius: 5px;
   border: 1px solid #e363dc;
   color: #fffefd;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
+  // display: flex;
+  // flex-flow: column wrap;
+  // justify-content: center;
+  // align-items: center;
+  // align-content: center;
+  // text-align: center;
   width: 150px;
   height: 200px;
 
   &__img {
     // width: 75px;
-    height: 110px;
+    height: 100px;
   }
 }
 

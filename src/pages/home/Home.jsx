@@ -16,8 +16,9 @@ export default function Home() {
 
   // function to display modal and data specific to a NFT Card
   const handleCardClick = (data) => {
-    console.log("Card clicked", data);
+    // console.log("Card clicked", data);
     setMore(data);
+    console.log(more);
     setShowModal(true);
   };
 
@@ -42,7 +43,7 @@ export default function Home() {
         withCredentials: false,
       });
       setData(response.data.ownedNfts);
-      console.log("This is data", data);
+      // console.log("This is data", data);
     } catch (err) {
       console.log(err);
     }
@@ -55,7 +56,7 @@ export default function Home() {
           <NFTDetails
             title={more.name}
             description={more.description}
-            url={more.url}
+            url={more.url || more.external_url}
             img={more.image}
           />
         </NFTModal>
@@ -72,14 +73,20 @@ export default function Home() {
         />
         <CardsContainer>
           {data.map((d, index) => {
-            return (
-              <NFTCard
-                img={d.contractMetadata.openSea.imageUrl}
-                name={d.metadata.name || d.title}
-                key={index}
-                onClick={() => handleCardClick(d.metadata)}
-              />
-            );
+            // if statement to filter out corrputed NFT cards
+            if (d.metadata.name || d.title) {
+              return (
+                <NFTCard
+                  img={d.contractMetadata.openSea.imageUrl}
+                  name={d.metadata.name || d.title}
+                  price={d.contractMetadata.openSea.floorPrice}
+                  key={index}
+                  onClick={() => handleCardClick(d.metadata)}
+                />
+              );
+            } else {
+              return;
+            }
           })}
         </CardsContainer>
       </div>
