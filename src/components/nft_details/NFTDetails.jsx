@@ -8,7 +8,7 @@ export default function NFTDetails({ title, description, url }) {
       <div className="nft_details">
         <h1>{title}</h1>
         <p>{description}</p>
-        <Link to={url}>OpenSea</Link>
+        <Link to={url}>Purchase NFT</Link>
       </div>
     </>
   );

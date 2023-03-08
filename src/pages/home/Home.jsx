@@ -21,6 +21,11 @@ export default function Home() {
     setShowModal(true);
   };
 
+  // function to close modal popup
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
   // function to update wallet address
   const handleAddressChange = (value) => {
     setAddress(value);
@@ -46,7 +51,7 @@ export default function Home() {
   return (
     <>
       {showModal && (
-        <NFTModal>
+        <NFTModal closeModal={handleModalClose}>
           <NFTDetails
             title={more.name}
             description={more.description}

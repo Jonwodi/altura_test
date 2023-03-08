@@ -1,9 +1,31 @@
 .nft_modal {
   width: auto;
   height: auto;
-  background-color: red;
-  position: absolute;
+  background-color: #e363dc;
+  border: 2px solid #5bc6f0;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: row-reverse wrap;
+  align-items: flex-start;
+  text-align: center;
+  padding: 25px;
+  column-gap: 20px;
+
+  &__close_button {
+    background-color: #5bc6f0;
+    border: #5bc6f0;
+    border-radius: 5px;
+  }
+
+  &__close_button :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &__xicon {
+    height: 25px;
+  }
 }
