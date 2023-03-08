@@ -1,5 +1,5 @@
 .nft_modal {
-  width: auto;
+  max-width: 100%;
   height: auto;
   background-color: #e363dc;
   border: 2px solid #5bc6f0;
@@ -9,8 +9,8 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   display: flex;
-  flex-flow: row-reverse wrap;
-  align-items: flex-start;
+  flex-flow: column wrap;
+  align-items: flex-end;
   text-align: center;
   padding: 25px;
   column-gap: 20px;

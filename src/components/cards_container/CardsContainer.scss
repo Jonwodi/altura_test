@@ -1,7 +1,7 @@
 // CSS for cards container
 .cards_container {
   height: auto;
-  width: 100%;
+  max-width: 100%;
   margin-top: 50px;
   display: flex;
   flex-flow: row wrap;
